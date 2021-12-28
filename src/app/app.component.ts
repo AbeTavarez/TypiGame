@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {lorem} from 'faker';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'typi-game';
+  randomText = lorem.sentence();
+
+  handleInput(event: Event){
+    const target = event.target as HTMLInputElement;
+    const value = target.value;
+    console.log(value);
+    
+  }
 }
