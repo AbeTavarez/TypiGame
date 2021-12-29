@@ -3,11 +3,19 @@
     <div class="col">
       <h1>Typi Game</h1>
 
-      <p>{{ randomText }}</p>
+      <p>
+        <span
+          [class]="compare(letter, enteredText[i])"
+          *ngFor="let letter of randomText.split(''); let i = index"
+          >{{ letter }}</span
+        >
+      </p>
 
       <input class="input col-6" (input)="handleInput($event)" />
 
-      <h1>You Win!</h1>
+      <div *ngIf="randomText === enteredText">
+        <h1>Well Done!</h1>
+      </div>
     </div>
   </div>
 </div>
